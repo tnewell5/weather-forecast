@@ -30,12 +30,34 @@ window.onload = function(){
           // https://api.forecast.io/forecast/8a4792098133e39137a3a5426aa457bd/40.75368539999999,-73.9991637
           let forecastQuery = 'https://api.forecast.io/forecast/' + FORECAST_API_KEY + '/' + lat + ',' + lng;
           console.log('forecastQuery: ', forecastQuery);
+
+          window.myCallback = function(response) {
+            console.log('entered myCallback');
+            console.log(response);
+          }
+          let script = document.createElement('script');
+          // https://api.forecast.io/forecast/8a4792098133e39137a3a5426aa457bd/40.75368539999999,-73.9991637?callback=foo
+          script.src = forecastQuery + '?callback=myCallback';
+          document.getElementsByTagName('head')[0].appendChild(script);
+
+          // let forecastRequest = new XMLHttpRequest();
+          // forecastRequest.open('GET', forecastQuery, true);
+          // forecastRequest.send(null);
+
+          // forecastRequest.onload = () => {
+          //   console.log(forecastRequest.responseText);
+          //   let response = forecastRequest.responseText;
+          // };
+          // forecastRequest.onerror = () => {
+          //   console.log('forecastRequest error');
+          // };
+
         }
         else {
-          console.log('request error');
+          console.log('google request error');
         }
       }
-    } // close onreadystatechange
+    } // close onreadystatechange for google call
 
 
 
