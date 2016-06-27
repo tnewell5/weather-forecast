@@ -35,8 +35,6 @@ window.onload = function(){
         let sevenDayHeader = document.querySelector('.seven-day-header');
         sevenDayHeader.innerText = '7 Day Forecast for ' + city + ', ' + state;
         sevenDayHeader.style.display = 'block';
-        // console.log(response.results[0].address_components[1].long_name);
-        // console.log(response.results[0].address_components[2].long_name);
         //console.log('lat: ', lat);
         //console.log('lng: ', lng);
 
@@ -76,7 +74,13 @@ window.onload = function(){
 
               function displayComponent(description, className) {
                 let someDiv = document.createElement('div');
-                someDiv.innerText = description;
+                someDiv.innerHTML = description;
+                //create degree img:
+                let degreeImg = new Image(10, 10);
+                degreeImg.src = 'images/fahrenheit.png';
+                if (className === 'short') {
+                  someDiv.appendChild(degreeImg);
+                }
                 someDiv.classList.add('forecast-component');
                 someDiv.classList.add(className);
                 dayDiv.appendChild(someDiv);
