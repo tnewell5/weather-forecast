@@ -34,6 +34,14 @@ window.onload = function(){
           //render 7 day forecast with temperature, apparentTemperature, summary, icon
           //loop over response and display data for each day
           function displayDailyForecast(object) {
+            let headerArray = document.querySelectorAll('.header');
+            let sevenDayHeader = document.querySelector('.seven-day-header');
+            sevenDayHeader.classList.remove('hidden');
+
+            for (let k = 0; k < headerArray.length; k += 1) {
+              headerArray[k].classList.remove('hidden');
+            }
+
             for (let i = 0; i < 7; i += 1) {
               //set up daily div:
               let flexForecastDiv = document.querySelector('#flex-forecast');
@@ -41,45 +49,47 @@ window.onload = function(){
               dayDiv.classList.add("daily-forecast-div");
 
               //display date:
-              let dayHeader = document.createElement('h3');
+              let dayHeader = document.createElement('h4');
               let day = new Date(response.daily.data[i].time * 1000);
-              const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+              //const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+              const options = {weekday: 'long', month: 'long', day: 'numeric'};
               let formattedDay = day.toLocaleDateString('en-US', options);
               dayHeader.innerText = formattedDay;
+              dayHeader.classList.add('forecast-component');
               dayDiv.appendChild(dayHeader);
 
               function displayComponent(description) {
                 let someDiv = document.createElement('div');
                 someDiv.innerText = description;
-                someDiv.classList.add('bottom-padding');
+                someDiv.classList.add('forecast-component');
                 dayDiv.appendChild(someDiv);
               }
 
               //display daily high temp:
               let tempMax = response.daily.data[i].temperatureMax;
-              displayComponent('Daily High: ' + tempMax);
+              displayComponent(tempMax);
 
               //display daily low temp:
               let tempMin = response.daily.data[i].temperatureMin;
-              displayComponent('Daily Low: ' + tempMin);
+              displayComponent(tempMin);
 
               //display apparent daily high temp:
               let appTempMax = response.daily.data[i].apparentTemperatureMax;
-              displayComponent('Apparent Daily High: ' + appTempMax);
+              displayComponent(appTempMax);
 
               //display apparent daily low temp:
               let appTempMin = response.daily.data[i].apparentTemperatureMin;
-              displayComponent('Apparent Daily Low: ' + appTempMin);
+              displayComponent(appTempMin);
 
               //display summary:
               let summary = response.daily.data[i].summary;
-              displayComponent('Summary: ' + summary);
+              displayComponent(summary);
 
               //display icon:
               let iconDiv = document.createElement('div');
               let icon = response.daily.data[i].icon;
-              iconDiv.innerText = 'Icon: ' + icon;
-              iconDiv.classList.add('bottom-padding');
+              iconDiv.innerText = icon;
+              iconDiv.classList.add('forecast-component');
               dayDiv.appendChild(iconDiv);
 
               flexForecastDiv.appendChild(dayDiv);
@@ -88,20 +98,9 @@ window.onload = function(){
 
           displayDailyForecast(response.daily.data);
 
-          // let appTempMax = response.daily.data[0].apparentTemperatureMax;
-          // let appTempMin = response.daily.data[0].apparentTemperatureMin;
-          // let summary = response.daily.data[0].summary;
-          // let icon = response.daily.data[0].icon;
-          // console.log('tempMax: ', tempMax);
-          // console.log('tempMin: ', tempMin);
-          // console.log('appTempMax: ', appTempMax);
-          // console.log('appTempMin: ', appTempMin);
-          // console.log('summary: ', summary);
-          // console.log('icon: ', icon);
 
 
-
-        }
+        } //close window.myCallback
 
         let script = document.createElement('script');
         script.src = forecastQuery + '?callback=myCallback';
