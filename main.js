@@ -56,41 +56,57 @@ window.onload = function(){
               let formattedDay = day.toLocaleDateString('en-US', options);
               dayHeader.innerText = formattedDay;
               dayHeader.classList.add('forecast-component');
+              dayHeader.classList.add('medium');
               dayDiv.appendChild(dayHeader);
 
-              function displayComponent(description) {
+              function displayComponent(description, className) {
                 let someDiv = document.createElement('div');
                 someDiv.innerText = description;
                 someDiv.classList.add('forecast-component');
+                someDiv.classList.add(className);
                 dayDiv.appendChild(someDiv);
               }
 
               //display daily high temp:
               let tempMax = response.daily.data[i].temperatureMax;
-              displayComponent(tempMax);
+              displayComponent(tempMax, 'short');
 
               //display daily low temp:
               let tempMin = response.daily.data[i].temperatureMin;
-              displayComponent(tempMin);
+              displayComponent(tempMin, 'short');
 
               //display apparent daily high temp:
               let appTempMax = response.daily.data[i].apparentTemperatureMax;
-              displayComponent(appTempMax);
+              displayComponent(appTempMax, 'short');
 
               //display apparent daily low temp:
               let appTempMin = response.daily.data[i].apparentTemperatureMin;
-              displayComponent(appTempMin);
+              displayComponent(appTempMin, 'short');
 
               //display summary:
               let summary = response.daily.data[i].summary;
-              displayComponent(summary);
+              displayComponent(summary, 'long');
 
               //display icon:
-              let iconDiv = document.createElement('div');
-              let icon = response.daily.data[i].icon;
-              iconDiv.innerText = icon;
-              iconDiv.classList.add('forecast-component');
-              dayDiv.appendChild(iconDiv);
+              console.log(response.daily.data[i].icon);
+              let iconImg = new Image(24, 24);
+
+              let iconText = response.daily.data[i].icon;
+              if (/partly-cloudy/i.test(iconText)) {
+                iconImg.src = 'images/partly-cloudy.png';
+              }
+              else if (/cloudy/i.test(iconText)) {
+                iconImg.src = 'images/cloudy.png';
+              }
+              else if (/rain/i.test(iconText)) {
+                iconImg.src = 'images/rainy.png';
+              }
+              else if (/clear/i.test(iconText)) {
+                iconImg.src = 'images/sunny.png';
+              }
+
+              iconImg.classList.add('icon');
+              dayDiv.appendChild(iconImg);
 
               flexForecastDiv.appendChild(dayDiv);
             } // close for loop
