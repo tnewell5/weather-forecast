@@ -8,6 +8,8 @@ window.onload = function(){
     for (var m = 0; m < dailyForecastDivArray.length; m += 1) {
       dailyForecastDivArray[m].style.display = 'none';
     }
+    let sevenDayHeader = document.querySelector('.seven-day-header');
+    sevenDayHeader.style.display = 'none';
     //console.log('submit button was clicked!');
     // capture zip code value, convert to coordinates, make API call
     let userZip = document.querySelector('#user-zip').value;
@@ -27,14 +29,22 @@ window.onload = function(){
         let response = JSON.parse(googleRequest.responseText);
         const lat = response.results[0].geometry.location.lat;
         const lng = response.results[0].geometry.location.lng;
-        console.log('lat: ', lat);
-        console.log('lng: ', lng);
+        console.log(response);
+        let city = response.results[0].address_components[1].short_name;
+        let state = response.results[0].address_components[3].short_name;
+        let sevenDayHeader = document.querySelector('.seven-day-header');
+        sevenDayHeader.innerText = '7 Day Forecast for ' + city + ', ' + state;
+        sevenDayHeader.style.display = 'block';
+        // console.log(response.results[0].address_components[1].long_name);
+        // console.log(response.results[0].address_components[2].long_name);
+        //console.log('lat: ', lat);
+        //console.log('lng: ', lng);
 
         let forecastQuery = 'https://api.forecast.io/forecast/' + FORECAST_API_KEY + '/' + lat + ',' + lng;
-        console.log('forecastQuery: ', forecastQuery);
+        //console.log('forecastQuery: ', forecastQuery);
 
         window.myCallback = function(response) {
-          console.log(response);
+          //console.log(response);
 
           //render 7 day forecast with temperature, apparentTemperature, summary, icon
           //loop over response and display data for each day
