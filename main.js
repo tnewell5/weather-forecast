@@ -3,6 +3,11 @@ window.onload = function(){
 
   const submitButton = document.querySelector('#submit-button');
   submitButton.addEventListener('click', () => {
+    //clear prior HTML if any:
+    let dailyForecastDivArray = document.querySelectorAll('.daily-forecast-div');
+    for (var m = 0; m < dailyForecastDivArray.length; m += 1) {
+      dailyForecastDivArray[m].style.display = 'none';
+    }
     //console.log('submit button was clicked!');
     // capture zip code value, convert to coordinates, make API call
     let userZip = document.querySelector('#user-zip').value;
@@ -103,6 +108,12 @@ window.onload = function(){
               }
               else if (/clear/i.test(iconText)) {
                 iconImg.src = 'images/sunny.png';
+              }
+              else if (/wind/i.test(iconText)) {
+                iconImg.src = 'images/windy.png';
+              }
+              else if (/snow/i.test(iconText)) {
+                iconImg.src = 'images/snowy.png';
               }
 
               iconImg.classList.add('icon');
