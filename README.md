@@ -6,6 +6,7 @@ must do:
 - credit icon author
 - clean up code
 - background image
+- make site responsive
 
 nice to have:
 - add degree symbol

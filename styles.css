@@ -42,15 +42,31 @@ h4 {
 }
 
 .long {
-  width: 40%;
+  width: 35%;
+}
+
+.long-hourly {
+  width: 35%;
 }
 
 .medium {
   width: 15%;
 }
 
+.medium-hourly {
+  width: 30%;
+}
+
 .short {
-  width: 8%;
+  width: 10%;
+}
+
+.short-hourly {
+  width: 20%;
+}
+
+.tiny {
+  width: 5%;
 }
 
 .hidden {
@@ -64,11 +80,13 @@ h4 {
 #hourly-header {
   display: flex;
   flex-direction: row;
+  width: 50%;
 }
 
 #flex-hourly {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .hour-rows {

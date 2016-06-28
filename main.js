@@ -7,7 +7,7 @@ window.onload = function(){
     //create degree img:
     let degreeImg = new Image(10, 10);
     degreeImg.src = 'images/fahrenheit.png';
-    if (className === 'short') {
+    if (className === 'short' || className === 'medium-hourly') {
       someDiv.appendChild(degreeImg);
     }
     someDiv.classList.add('forecast-component');
@@ -163,16 +163,16 @@ window.onload = function(){
               formattedTime = formattedTime.split(',').pop();
               timeHeader.innerText = formattedTime;
               timeHeader.classList.add('forecast-component');
-              timeHeader.classList.add('medium');
+              timeHeader.classList.add('short-hourly');
               hourlyDiv.appendChild(timeHeader);
 
               //display temperature:
               let temp = response[i].temperature;
-              displayComponent(temp, 'short', hourlyDiv);
+              displayComponent(temp, 'medium-hourly', hourlyDiv);
 
               //display summary:
               let summary = response[i].summary;
-              displayComponent(summary, 'medium', hourlyDiv);
+              displayComponent(summary, 'long-hourly', hourlyDiv);
 
               //display icon:
               let iconText = response[i].icon;
