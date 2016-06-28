@@ -1,6 +1,17 @@
 body {
-  background: lightblue;
+  /*background: lightblue;*/
+  background-image: url("images/forecast-background.jpg");
+  background-size: cover;
   font-family: verdana;
+}
+
+h2, h3, h5 {
+  color: white;
+  text-shadow: 2px 1px #300000;
+}
+
+p {
+  color: #282828;
 }
 
 #forecast-header {
@@ -103,8 +114,9 @@ h4 {
   font-size: 12px;
 }
 
-a:link {
+a:link, a:visited {
   text-decoration: none;
+  color: #282828;
 }
 
 @media (max-width: 1100px) {
