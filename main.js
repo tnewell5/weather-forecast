@@ -1,14 +1,16 @@
 window.onload = function(){
   console.log('window has loaded!');
 
-  function displayComponent(description, className, parentDiv) {
+  function displayComponent(description, className, parentDiv, specialClassName) {
     let someDiv = document.createElement('div');
     someDiv.innerHTML = description;
-    //create degree img:
     let degreeImg = new Image(10, 10);
     degreeImg.src = 'images/fahrenheit.png';
     if (className === 'short' || className === 'medium-hourly') {
       someDiv.appendChild(degreeImg);
+    }
+    if (specialClassName === 'media-hide') {
+      someDiv.classList.add('media-hide');
     }
     someDiv.classList.add('forecast-component');
     someDiv.classList.add(className);
@@ -17,7 +19,6 @@ window.onload = function(){
 
   function insertIcon(iconText, parentDiv) {
     let iconImg = new Image(24, 24);
-    //let iconText = response.daily.data[i].icon;
     if (/partly-cloudy/i.test(iconText)) {
       iconImg.src = 'images/partly-cloudy.png';
     }
@@ -42,6 +43,7 @@ window.onload = function(){
 
   const submitButton = document.querySelector('#submit-button');
   submitButton.addEventListener('click', () => {
+
     //clear prior HTML if any:
     let dailyForecastDivArray = document.querySelectorAll('.daily-forecast-div');
     for (var m = 0; m < dailyForecastDivArray.length; m += 1) {
@@ -49,17 +51,16 @@ window.onload = function(){
     }
     let sevenDayHeader = document.querySelector('.seven-day-header');
     sevenDayHeader.style.display = 'none';
-    //console.log('submit button was clicked!');
-    // capture zip code value, convert to coordinates, make API call
+
+    // capture zip code value, convert to coordinates, make API call:
     let userZip = document.querySelector('#user-zip').value;
-    //console.log('userZip: ', userZip);
-    //make sure user entered a valid zip code
+
+    //make sure user entered a valid zip code:
     if (userZip.length !== 5 || /\D/.test(userZip)) {
       alert('Please enter a valid zip code');
     }
     else {
       let googleQuery = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + userZip+ '&key=' + GOOGLE_API_KEY;
-      //console.log('googleQuery: ', googleQuery);
       let googleRequest = new XMLHttpRequest();
       googleRequest.open('GET', googleQuery);
       googleRequest.send(null);
@@ -68,23 +69,17 @@ window.onload = function(){
         let response = JSON.parse(googleRequest.responseText);
         const lat = response.results[0].geometry.location.lat;
         const lng = response.results[0].geometry.location.lng;
-        //console.log(response);
         let city = response.results[0].address_components[1].short_name;
         let state = response.results[0].address_components[3].short_name;
         let sevenDayHeader = document.querySelector('.seven-day-header');
         sevenDayHeader.innerText = '7 Day Forecast for ' + city + ', ' + state;
         sevenDayHeader.style.display = 'block';
-        //console.log('lat: ', lat);
-        //console.log('lng: ', lng);
 
         let forecastQuery = 'https://api.forecast.io/forecast/' + FORECAST_API_KEY + '/' + lat + ',' + lng;
-        //console.log('forecastQuery: ', forecastQuery);
 
         window.myCallback = function(response) {
-          console.log(response);
 
-          //render 7 day forecast with temperature, apparentTemperature, summary, icon
-          //loop over response and display data for each day
+          //render 7 day forecast with temperature, apparentTemperature, summary, icon:
           function displayDailyForecast(object) {
             let headerArray = document.querySelectorAll('.header');
             let sevenDayHeader = document.querySelector('.seven-day-header');
@@ -103,7 +98,6 @@ window.onload = function(){
               //display date:
               let dayHeader = document.createElement('h4');
               let day = new Date(response.daily.data[i].time * 1000);
-              //const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
               const options = {weekday: 'long', month: 'long', day: 'numeric'};
               let formattedDay = day.toLocaleDateString('en-US', options);
               dayHeader.innerText = formattedDay;
@@ -121,11 +115,11 @@ window.onload = function(){
 
               //display apparent daily high temp:
               let appTempMax = response.daily.data[i].apparentTemperatureMax;
-              displayComponent(appTempMax, 'short', dayDiv);
+              displayComponent(appTempMax, 'short', dayDiv, 'media-hide');
 
               //display apparent daily low temp:
               let appTempMin = response.daily.data[i].apparentTemperatureMin;
-              displayComponent(appTempMin, 'short', dayDiv);
+              displayComponent(appTempMin, 'short', dayDiv, 'media-hide');
 
               //display summary:
               let summary = response.daily.data[i].summary;
@@ -137,13 +131,12 @@ window.onload = function(){
 
               flexForecastDiv.appendChild(dayDiv);
             } // close for loop
-          } // close displayDailyForecast
+          } // close displayDailyForecast fxn
 
           displayDailyForecast(response.daily.data);
 
-          //now the hourly forecast:
+          //display the hourly forecast:
           function displayHourlyForecast(response) {
-            //let headerArray = document.querySelectorAll('.header');
             let hourlyTitleHeader = document.querySelector('.hourly-title');
             hourlyTitleHeader.classList.remove('hidden');
             let hourlyHeaderCol = document.querySelector('#hourly-header');
@@ -199,10 +192,6 @@ window.onload = function(){
       googleRequest.onerror = () => {
          console.log('googleRequest error');
       };
-
     } // close else stmt
-
   }); // close event listener
-
-
 }; // close window.onload

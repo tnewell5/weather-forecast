@@ -2,9 +2,5 @@
 
 must do:
 - write up documentation
-- create banner for Forecast API
-- credit icon author
-- clean up code
 - background image
 - make site responsive
-- add tab weather icon
