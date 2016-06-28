@@ -8,7 +8,7 @@ This is a responsive web app that allows the user to pull up a 7 day and an hour
 #### How to use app:
 Open index.html in your browser. Enter the desired zip code and click the Submit button.
 
-#### Technologies Used:
+#### Technologies used:
 Javascript, HTML, CSS, Google API, The Dark Sky Forecast API.
 
 #### Free images used:
