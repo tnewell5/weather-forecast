@@ -3,18 +3,17 @@ body {
   font-family: verdana;
 }
 
-#flex-forecast {
-  display: flex;
-  flex-direction: column;
-}
-
 #forecast-header {
   display: flex;
   flex-direction: row;
 }
 
+#flex-forecast {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
-  /*width: 20%;*/
   font-size: 12px;
   text-align: left;
   margin: 0.5%;
@@ -29,22 +28,16 @@ h4 {
   display: flex;
   flex-direction: row;
   background: white;
-  /*padding-right: 3%;*/
-  /*padding-top: 0.5%;
-  padding-bottom: 0.5%;*/
   border: 1px solid gray;
   text-align: center;
   height: 30px;
 }
 
 .forecast-component {
-  /*width: 20%;*/
   text-align: left;
   margin: 0;
   font-size: 12px;
   background: white;
-  /*margin-top: 0.5%;
-  margin-bottom: 0.5%;*/
   margin: 0.5%;
 }
 
@@ -60,14 +53,30 @@ h4 {
   width: 8%;
 }
 
-/*.bottom-padding {
-  padding-bottom: 10%;
-}*/
-
 .hidden {
   display: none;
 }
 
 .icon {
   margin-top: 0.25%;
+}
+
+#hourly-header {
+  display: flex;
+  flex-direction: row;
+}
+
+#flex-hourly {
+  display: flex;
+  flex-direction: column;
+}
+
+.hour-rows {
+  display: flex;
+  flex-direction: row;
+}
+
+.temp {
+  display: flex;
+  flex-direction: column;
 }

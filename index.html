@@ -13,20 +13,30 @@
         <input id='user-zip' type="text" name="name" value="" placeholder="11201">
         <button id='submit-button' type="button">Submit!</button><br><br><hr>
       </div>
-      <div id='results-container'>
-        <h3 class='seven-day-header hidden'>7 Day Forecast</h3>
-        <div id='forecast-header'>
-          <div class='header hidden medium'>DAY</div>
-          <div class='header hidden short'>HIGH</div>
-          <div class='header hidden short'>LOW</div>
-          <div class='header hidden short'>APPARENT HIGH</div>
-          <div class='header hidden short'>APPARENT LOW</div>
-          <div class='header hidden long'>SUMMARY</div>
-          <!-- <div class='header hidden short'>ICON</div> -->
-        </div>
-        <div id='flex-forecast'>
-        </div>
-      </di>
+
+      <h3 class='seven-day-header hidden'>7 Day Forecast</h3>
+      <div id='forecast-header'>
+        <div class='header hidden medium'>DAY</div>
+        <div class='header hidden short'>HIGH</div>
+        <div class='header hidden short'>LOW</div>
+        <div class='header hidden short'>APPARENT HIGH</div>
+        <div class='header hidden short'>APPARENT LOW</div>
+        <div class='header hidden long'>SUMMARY</div>
+      </div>
+      <div id='flex-forecast'>
+      </div>
+      <!-- <br> -->
+      <h3 class='hourly-title hidden'>Hourly Forecast</h3>
+      <div id='hourly-header'>
+        <div class='header hidden medium'>TIME</div>
+        <div class='header hidden medium'>TEMPERATURE</div>
+        <div class='header hidden long'>SUMMARY</div>
+        <!-- <div class='header hidden'>ICON</div> -->
+      </div>
+      <div id='flex-hourly'>
+      </div>
+
+    <!-- close main-container -->
     </div>
 
     <script src="apiKeys.js"></script>
