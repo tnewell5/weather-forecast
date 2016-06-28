@@ -7,7 +7,4 @@ must do:
 - clean up code
 - background image
 - make site responsive
-
-nice to have:
-- add degree symbol
 - add tab weather icon

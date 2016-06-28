@@ -98,3 +98,13 @@ h4 {
   display: flex;
   flex-direction: column;
 }
+
+#credit-banners {
+  /*display: flex;
+  flex-direction: column;*/
+  font-size: 12px;
+}
+
+a:link {
+  text-decoration: none;
+}

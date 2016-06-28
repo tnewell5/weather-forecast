@@ -185,6 +185,10 @@ window.onload = function(){
 
           displayHourlyForecast(response.hourly.data);
 
+          //display credit banners:
+          let creditBannersDiv = document.querySelector('#credit-banners');
+          creditBannersDiv.classList.remove('hidden');
+
         } //close window.myCallback
 
         let script = document.createElement('script');
