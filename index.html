@@ -6,56 +6,53 @@
     <title>Weather Forecast</title>
   </head>
   <body>
-    <div id='main-container'>
-      <div id='user-input-container'>
-        <h2>Weather Forecast</h2>
-        <span>
-          <label>Please enter zip code:&nbsp;</label>
-          <input id='user-zip' type="text" name="name" value="" placeholder="11201">
-          <button id='submit-button' type="button">Submit!</button><br><br><hr>
-        </span>
-      </div>
-
-      <div class='hidden forecast-results'>
-        <h3 class='seven-day-header'>7 Day Forecast</h3>
-        <header class='forecast'>
-          <div class='medium'>DAY</div>
-          <div class='short'>HIGH</div>
-          <div class='short'>LOW</div>
-          <div class='short media-hide'>APPARENT HIGH</div>
-          <div class='short media-hide'>APPARENT LOW</div>
-          <div class='long'>SUMMARY</div>
-        </header>
-        <div id='flex-forecast' class='forecast-row'>
-        </div>
-        <div class='hourly'>
-          <h3 class='hourly-title'>Hourly Forecast</h3>
-          <header>
-            <div class='short-hourly'>TIME</div>
-            <div class='medium-hourly'>TEMPERATURE</div>
-            <div class='long-hourly'>SUMMARY</div>
-          </header>
-          <div id='flex-hourly' class='forecast-row'>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div id='credit-banners' class='hidden'>
-          <p>This app is powered by:&nbsp;
-            <a target='blank' href='https://developer.forecast.io/docs/v2'>The Dark Sky Forecast API</a>
-            and
-            <a target='blank' href='https://developers.google.com/'>Google API</a>
-          </p>
-          <p>Icons made by
-            <a target='blank' href='http://www.flaticon.com/authors/freepik'>Freepik</a>&nbsp; from
-            <a target='blank' href='http://www.flaticon.com/'>www.flaticon.com</a>
-          </p>
-          <p>App created by
-            <a target='blank' href='http://tnewell5.github.io/Portfolio/'>Tanya Newell</a>
-          </p>
-      <div>
-    <!-- close main-container -->
+    <div>
+      <h2>Weather Forecast</h2>
+      <span>
+        <label>Please enter zip code:&nbsp;</label>
+        <input id='user-zip' type="text" name="name" value="" placeholder="11201">
+        <button id='submit-button' type="button">Submit!</button><br><br><hr>
+      </span>
     </div>
+
+    <div class='hidden forecast-results'>
+      <h3 class='seven-day-header'>7 Day Forecast</h3>
+      <header class='forecast'>
+        <div class='medium'>DAY</div>
+        <div class='short'>HIGH</div>
+        <div class='short'>LOW</div>
+        <div class='short media-hide'>APPARENT HIGH</div>
+        <div class='short media-hide'>APPARENT LOW</div>
+        <div class='long'>SUMMARY</div>
+      </header>
+      <div id='flex-forecast' class='forecast-row'>
+      </div>
+      <div class='hourly'>
+        <h3 class='hourly-title'>Hourly Forecast</h3>
+        <header>
+          <div class='short-hourly'>TIME</div>
+          <div class='medium-hourly'>TEMPERATURE</div>
+          <div class='long-hourly'>SUMMARY</div>
+        </header>
+        <div id='flex-hourly' class='forecast-row'>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id='credit-banners' class='hidden'>
+        <p>This app is powered by:&nbsp;
+          <a target='blank' href='https://developer.forecast.io/docs/v2'>The Dark Sky Forecast API</a>
+          and
+          <a target='blank' href='https://developers.google.com/'>Google API</a>
+        </p>
+        <p>Icons made by
+          <a target='blank' href='http://www.flaticon.com/authors/freepik'>Freepik</a>&nbsp; from
+          <a target='blank' href='http://www.flaticon.com/'>www.flaticon.com</a>
+        </p>
+        <p>App created by
+          <a target='blank' href='http://tnewell5.github.io/Portfolio/'>Tanya Newell</a>
+        </p>
+    <div>
 
     <script src="apiKeys.js"></script>
     <script src='main.js'></script>

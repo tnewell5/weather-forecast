@@ -1,6 +1,4 @@
 window.onload = function(){
-  console.log('window has loaded!');
-
   function displayComponent(description, className, parentDiv, specialClassName) {
     let someDiv = document.createElement('div');
     someDiv.innerHTML = description;
@@ -184,8 +182,8 @@ window.onload = function(){
         document.getElementsByTagName('head')[0].appendChild(script);
       } // close onload
 
-      googleRequest.onerror = () => {
-         console.log('googleRequest error');
+      googleRequest.onerror = (error) => {
+         console.error(error);
       };
     } // close else stmt
   }); // close event listener
