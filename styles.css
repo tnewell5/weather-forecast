@@ -4,7 +4,7 @@ body {
   font-family: verdana;
 }
 
-h2, h3, h5 {
+h2, h3 {
   color: white;
   text-shadow: 2px 1px #300000;
 }
@@ -13,17 +13,21 @@ p {
   color: #282828;
 }
 
-#forecast-header {
+header {
   display: flex;
   flex-direction: row;
 }
 
-#flex-forecast {
+.hourly {
+  width: 50%;
+}
+
+.forecast-row {
   display: flex;
   flex-direction: column;
 }
 
-.header {
+header div{
   font-size: 12px;
   text-align: left;
   margin: 0.5%;
@@ -85,18 +89,6 @@ h4 {
 
 .icon {
   margin-top: 0.25%;
-}
-
-#hourly-header {
-  display: flex;
-  flex-direction: row;
-  width: 50%;
-}
-
-#flex-hourly {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
 }
 
 .hour-rows {

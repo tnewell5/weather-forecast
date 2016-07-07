@@ -81,13 +81,8 @@ window.onload = function(){
 
           //render 7 day forecast with temperature, apparentTemperature, summary, icon:
           function displayDailyForecast(object) {
-            let headerArray = document.querySelectorAll('.header');
-            let sevenDayHeader = document.querySelector('.seven-day-header');
-            sevenDayHeader.classList.remove('hidden');
-
-            for (let k = 0; k < headerArray.length; k += 1) {
-              headerArray[k].classList.remove('hidden');
-            }
+            let forecastResults = document.querySelector('.hidden.forecast-results');
+            forecastResults.classList.remove('hidden');
 
             for (let i = 0; i < 7; i += 1) {
               //set up daily div:
@@ -139,7 +134,7 @@ window.onload = function(){
           function displayHourlyForecast(response) {
             let hourlyTitleHeader = document.querySelector('.hourly-title');
             hourlyTitleHeader.classList.remove('hidden');
-            let hourlyHeaderCol = document.querySelector('#hourly-header');
+            let hourlyHeaderCol = document.querySelector('.hourly');
             hourlyHeaderCol.classList.remove('hidden');
 
             for (let i = 0; i < 12; i += 1) {

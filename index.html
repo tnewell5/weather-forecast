@@ -9,32 +9,35 @@
     <div id='main-container'>
       <div id='user-input-container'>
         <h2>Weather Forecast</h2>
-        <h5>Please enter zip code:&nbsp;
+        <span>
+          <label>Please enter zip code:&nbsp;</label>
           <input id='user-zip' type="text" name="name" value="" placeholder="11201">
           <button id='submit-button' type="button">Submit!</button><br><br><hr>
-        </h5>
+        </span>
       </div>
 
-      <h3 class='seven-day-header hidden'>7 Day Forecast</h3>
-      <div id='forecast-header'>
-        <div class='header hidden medium'>DAY</div>
-        <div class='header hidden short'>HIGH</div>
-        <div class='header hidden short'>LOW</div>
-        <div class='header hidden short media-hide'>APPARENT HIGH</div>
-        <div class='header hidden short media-hide'>APPARENT LOW</div>
-        <div class='header hidden long'>SUMMARY</div>
-      </div>
-      <div id='flex-forecast'>
-      </div>
-      <!-- <br> -->
-      <h3 class='hourly-title hidden'>Hourly Forecast</h3>
-      <div id='hourly-header'>
-        <div class='header hidden short-hourly'>TIME</div>
-        <div class='header hidden medium-hourly'>TEMPERATURE</div>
-        <div class='header hidden long-hourly'>SUMMARY</div>
-        <!-- <div class='header hidden'>ICON</div> -->
-      </div>
-      <div id='flex-hourly'>
+      <div class='hidden forecast-results'>
+        <h3 class='seven-day-header'>7 Day Forecast</h3>
+        <header class='forecast'>
+          <div class='medium'>DAY</div>
+          <div class='short'>HIGH</div>
+          <div class='short'>LOW</div>
+          <div class='short media-hide'>APPARENT HIGH</div>
+          <div class='short media-hide'>APPARENT LOW</div>
+          <div class='long'>SUMMARY</div>
+        </header>
+        <div id='flex-forecast' class='forecast-row'>
+        </div>
+        <div class='hourly'>
+          <h3 class='hourly-title'>Hourly Forecast</h3>
+          <header>
+            <div class='short-hourly'>TIME</div>
+            <div class='medium-hourly'>TEMPERATURE</div>
+            <div class='long-hourly'>SUMMARY</div>
+          </header>
+          <div id='flex-hourly' class='forecast-row'>
+          </div>
+        </div>
       </div>
       <br>
       <div id='credit-banners' class='hidden'>
